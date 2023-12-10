@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    When arithmetic expressions are given in the familiar <strong>infix</strong> notation <code>2 + 3 × 4</code>, parentheses nudge the different evaluation order to differ from the usual <b>PEMDAS</b> order determined by <strong>precedence</strong> and associativity of each operator. The alternative <strong>postfix</strong> notation (also known as <a target="_blank" href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>) may first look weird to people accustomed to the conventional infix. However, postfix notation turns out to be easier for machines, since it allows encoding <i>any</i> intended evaluation order without any parentheses! 
+</p>
+
+<p style="text-align: justify;">
+    A postfix expression is given as {% if is_js %}array{% else %}list{% endif %} of <code>items</code> that can be either individual integers, or one of the strings '+', '-', '*' and '/' to denote the four basic arithmetic operators. To evaluate a postfix expression use an initially empty stack. Loop through the items one by one, from left to right. Whenever the current item is an integer, just append it to the end of the list. Otherwise, pop two items from the end of the list to perform that operation on, and append the result back to the list. Assuming that items is a legal postfix expression, which is guaranteed in this problem so that you don’t need to perform any error detection or recovery, once all items have been processed, the lone number left in the stack becomes the final answer.
+</p>
+
+<p style="text-align: justify;">
+    To avoid the intricacies of floating point arithmetic, you should perform the division operation using the Python integer division operator <code>//</code> that truncates the result to the integer part. Furthermore, to avoid the crash from dividing by zero, this problem comes with an artificial (yet <a target="_blank" href="https://www.hillelwayne.com/post/divide-by-zero/">mathematically</a> perfectly sound) rule that division by zero gives a zero result, instead of crashing.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}postfix-eval.svg" alt="example" style="max-height: 200px"/>
+</p>
+
+<p style="text-align: justify;">
+    By adding more operators and another auxiliary stack, an entire Turing-complete programming language can be built around postfix evaluation. Visit <a target="_blank" href="https://en.wikipedia.org/wiki/Forth_(programming_language)">“Forth”</a> page to learn more of this ingeniously simple concatenative programming language.
+</p>
+<!-- Explain input and output values -->
+<p>
+    <strong>Input:</strong> {% if is_js %}Array{% else %}List{% endif %} of integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span> and strings <span translate="no">(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Output:</strong> Integer <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+
+<p>
+    <strong>Examples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->

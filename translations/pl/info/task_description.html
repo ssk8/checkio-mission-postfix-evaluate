@@ -1,0 +1,55 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Gdy wyrażenia arytmetyczne są podawane w znanej notacji <strong>infiksowej</strong> <code>2 + 3 × 4</code>, nawiasy powodują, że inna kolejność oceny różni się od zwykłej <b>PEMDAS</b> kolejności określonej przez <strong>pierwszeństwo</strong> i asocjatywność każdego operatora. Alternatywna notacja <strong>postfiksowa</strong> (znana również jako <a target="_blank" href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>) może początkowo wyglądać dziwnie dla osób przyzwyczajonych do konwencjonalnego infiksu. Jednak notacja postfiksowa okazuje się być łatwiejsza dla maszyn, ponieważ pozwala na zakodowanie <i>dowolnej</i> zamierzonej kolejności ewaluacji bez nawiasów! 
+</p>
+
+<p style="text-align: justify;">
+    Wyrażenie postfiksowe jest podawane jako {% if is_js %}array{% else %}list{% endif %} of <code>items</code>, które mogą być albo pojedynczymi liczbami całkowitymi, albo jednym z łańcuchów '+', '-', '*' i '/' oznaczających cztery podstawowe operatory arytmetyczne. Aby obliczyć wyrażenie postfiksowe, należy użyć początkowo pustego stosu. Proszę przeglądać elementy jeden po drugim, od lewej do prawej. Jeśli bieżący element jest liczbą całkowitą, proszę dodać go na koniec listy. W przeciwnym razie, proszę pobrać dwa elementy z końca listy, aby wykonać tę operację, a następnie dołączyć wynik z powrotem do listy. Zakładając, że items jest legalnym wyrażeniem postfiksowym, co jest gwarantowane w tym problemie, więc nie trzeba wykonywać żadnego wykrywania błędów ani odzyskiwania, po przetworzeniu wszystkich elementów, samotna liczba pozostała na stosie staje się ostateczną odpowiedzią.
+</p>
+
+<p style="text-align: justify;">
+    Aby uniknąć zawiłości arytmetyki zmiennoprzecinkowej, należy wykonać operację dzielenia przy użyciu operatora dzielenia całkowitoliczbowego Pythona <code>//</code>, który obcina wynik do części całkowitej. Co więcej, w celu uniknięcia awarii związanej z dzieleniem przez zero, problem ten zawiera sztuczną (ale <a target="_blank" href="https://www.hillelwayne.com/post/divide-by-zero/">mathematically</a> doskonale uzasadnioną) regułę, zgodnie z którą dzielenie przez zero daje wynik zerowy, zamiast powodować awarię.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}postfix-eval.svg" alt="example" style="max-height: 200px"/>
+</p>
+
+<p style="text-align: justify;">
+    Dodając więcej operatorów i kolejny stos pomocniczy, można zbudować cały kompletny język programowania Turinga wokół ewaluacji postfiksów. Proszę odwiedzić stronę <a target="_blank" href="https://en.wikipedia.org/wiki/Forth_(programming_language)">“Forth”</a>, aby dowiedzieć się więcej o tym genialnie prostym konkatenacyjnym języku programowania.
+</p>
+<!-- Explain input and output values -->
+<p>
+   <strong>Dane wejściowe:</strong> {% if is_js %}Tablica{% else %}Lista{% endif %} liczb całkowitych <span>({% if is_js %}number{% else %}int{% endif %})</span> i łańcuchów <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+   <strong>Dane wyjściowe:</strong> Liczba całkowita <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
+
+<p><i>Misja została zaczerpnięta z Python CCPS 109. Jest on prowadzony dla Ryerson Chang School of Continuing Education przez <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a></i></p>

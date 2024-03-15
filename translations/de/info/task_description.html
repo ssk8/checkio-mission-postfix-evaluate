@@ -1,0 +1,55 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Wenn arithmetische Ausdrücke in der vertrauten <strong>Infix-Notation</strong> <code>2 + 3 × 4</code> angegeben werden, weichen die Klammern in der Auswertungsreihenfolge von der üblichen <b>PEMDAS</b> ab, die durch den <strong>Vorrang</strong> und die Assoziativität der einzelnen Operatoren bestimmt wird. Die alternative <strong>Postfix-Notation</strong> (auch bekannt als <a target="_blank" href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>) mag für Menschen, die an die herkömmliche Infix-Notation gewöhnt sind, zunächst seltsam erscheinen. Es stellt sich jedoch heraus, dass die Postfix-Notation für Maschinen einfacher ist, da sie die Kodierung <i>jeder</i> beabsichtigten Auswertungsreihenfolge ohne Klammern ermöglicht! 
+</p>
+
+<p style="text-align: justify;">
+    Ein Postfix-Ausdruck wird als {% if is_js %}Array{% else %}Liste{% endif %} von <code>items</code> angegeben, die entweder einzelne ganze Zahlen oder eine der Zeichenketten '+', '-', '*' und '/' zur Bezeichnung der vier grundlegenden arithmetischen Operatoren sein können. Um einen Postfix-Ausdruck auszuwerten, verwenden Sie einen zunächst leeren Stapel. Durchlaufen Sie die Elemente eines nach dem anderen von links nach rechts. Wenn das aktuelle Element eine ganze Zahl ist, fügen Sie es einfach an das Ende der Liste an. Andernfalls ziehen Sie zwei Elemente vom Ende der Liste ab, um diese Operation durchzuführen, und fügen das Ergebnis wieder an die Liste an. Unter der Annahme, dass items ein zulässiger Postfix-Ausdruck ist, was bei diesem Problem garantiert ist, so dass Sie keine Fehlererkennung oder -behebung durchführen müssen, wird die einzige Zahl, die sich noch auf dem Stapel befindet, zur endgültigen Antwort, sobald alle Elemente verarbeitet wurden.
+</p>
+
+<p style="text-align: justify;">
+    Um die Feinheiten der Fließkomma-Arithmetik zu vermeiden, sollten Sie die Division mit dem Python-Operator für Ganzzahldivision <code>//</code> durchführen, der das Ergebnis auf den ganzzahligen Teil abschneidet. Um den Absturz bei der Division durch Null zu vermeiden, gibt es für dieses Problem eine künstliche (aber <a target="_blank" href="https://www.hillelwayne.com/post/divide-by-zero/">mathematically</a> durchaus sinnvolle) Regel, die besagt, dass die Division durch Null ein Ergebnis von Null liefert, anstatt abzustürzen.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}postfix-eval.svg" alt="example" style="max-height: 200px"/>
+</p>
+
+<p style="text-align: justify;">
+    Durch Hinzufügen weiterer Operatoren und eines weiteren Hilfsstapels kann eine ganze Turing-komplette Programmiersprache um die Postfix-Auswertung herum aufgebaut werden. Besuchen Sie die Seite <a target="_blank" href="https://en.wikipedia.org/wiki/Forth_(programming_language)">“Forth”</a>, um mehr über diese genial einfache konkatenative Programmiersprache zu erfahren.
+</p>
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array{% else %}Liste{% endif %} von ganzen Zahlen <span>({% if is_js %}number{% else %}int{% endif %})</span> und Zeichenketten <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Integer <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+
+<p>
+    <strong>Beispiele:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
+
+<p><i>Die Aufgabe wurde aus Python CCPS 109 übernommen. Sie wird für die Ryerson Chang School of Continuing Education unterrichtet von <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a></i></p>
